@@ -1,0 +1,84 @@
+Absolutely! Let’s make a clear, step-by-step workflow for your automation lab, so you can load your environment and create a new project using newproj.sh.
+
+Step 1: Open your terminal and navigate to your repo
+cd ~/automation-lab
+
+
+This ensures you’re in your main repo folder.
+
+All projects will be created inside this folder.
+
+Step 2: Activate your Python virtual environment
+source ~/automation-lab-env/bin/activate
+
+
+Your prompt should now show (automation-lab-env)
+
+This ensures Python, Ansible, Netmiko, and other packages are available for your new project.
+
+Step 3: Run the newproj.sh script
+
+You have two options:
+
+Option 1: Provide a project name directly
+
+./newproj.sh my-new-project
+
+
+The script will:
+
+Create python/my-new-project/ folder
+
+Add my-new-project.py with a Hello World message
+
+Git add, commit, and push to GitHub
+
+Ask if you want to open VS Code
+
+Option 2: Let the script ask for the project name
+
+./newproj.sh
+
+
+The script will prompt:
+
+Enter your new project name:
+
+
+Type the name (e.g., test6) and press Enter.
+
+It will then create the folder, script, commit, push, and ask about VS Code.
+
+Step 4: Optional — open VS Code
+
+If you answer Y to the VS Code prompt, it will open your repo in VS Code.
+
+You can navigate to python/<project-name>/ and run/edit your Python file.
+
+Step 5: Verify everything works
+
+Run the Python script to check output:
+
+python python/<project-name>/<project-name>.py
+
+
+Example:
+
+python python/test6/test6.py
+
+
+You should see:
+
+Hello from test6!
+
+
+Check GitHub → your repo should have the new project folder and script.
+
+✅ Summary Commands
+cd ~/automation-lab
+source ~/automation-lab-env/bin/activate
+./newproj.sh                  # or ./newproj.sh project-name
+python python/<project>/<project>.py
+
+
+If you want, I can also make a tiny cheat-sheet you can keep on your desktop that lists all these steps as a one-page workflow — perfect for quick reference whenever you start a new project.
