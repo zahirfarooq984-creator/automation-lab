@@ -1,0 +1,83 @@
+cd ~/automation-lab
+git status
+git add .
+git commit -m "your message here"
+git push
+
+====================================================================
+
+🧩 Step-by-Step: Committing Your Code to GitHub
+1️⃣ Save your changes
+
+If you’re editing in VS Code, just hit:
+
+Ctrl + S
+
+
+to save your modified file(s).
+
+2️⃣ Open your terminal (in VS Code or Linux Mint)
+
+Make sure you’re in your repo folder:
+
+cd ~/automation-lab
+
+
+You can check you’re in the right place by listing your folders:
+
+ls
+
+
+You should see your python folder there.
+
+3️⃣ Check what changed
+git status
+
+
+You’ll see something like:
+
+On branch master
+Changes not staged for commit:
+  modified:   python/test3/test3.py
+
+4️⃣ Stage your changes
+
+This tells Git which files you want to include in your next commit.
+
+git add .
+
+
+or to be more specific:
+
+git add python/test3/test3.py
+
+5️⃣ Commit your changes
+
+Add a message describing what you changed:
+
+git commit -m "Updated test3.py to print custom message"
+
+
+You’ll see something like:
+
+[master 8ab12cd] Updated test3.py to print custom message
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+6️⃣ Push to GitHub
+
+Send your committed changes to your online repository:
+
+git push
+
+
+Output example:
+
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+...
+To github.com:zahirfarooq984-creator/automation-lab.git
+   123abc..456def  master -> master
+
+
+✅ Done! Your updated file is now live on GitHub.
+

@@ -1,0 +1,95 @@
+Remove a Subfolder (e.g., test2) and Update Git
+1️⃣ Navigate to your repo
+cd ~/automation-lab
+
+2️⃣ Delete just that subfolder
+
+Run:
+
+rm -r python/test2
+
+
+✅ This removes only the folder test2 and its contents.
+Your python folder stays untouched.
+
+3️⃣ Check what changed
+git status
+
+
+You should see:
+
+deleted:    python/test2/test2.py
+deleted:    python/test2/
+
+4️⃣ Stage the deletion
+git add -u
+
+
+or simply:
+
+git add python/test2
+
+5️⃣ Commit your change
+git commit -m "Removed folder test2"
+
+6️⃣ Push to GitHub
+git push
+
+
+✅ Now the test2 folder is gone both locally and on GitHub.
+
+🧠 Quick Summary
+cd ~/automation-lab
+rm -r python/test2
+git add -u
+git commit -m "Removed folder test2"
+git push
+
+
+
+
+========================================================
+# Script to remove folder in git
+
+#!/bin/bash
+# ======================================================
+# removeproj.sh – Safely remove a Python project folder
+# Usage: ./removeproj.sh  (you will be prompted for the folder name)
+# ======================================================
+
+# Ask for project name if not given
+if [ -z "$1" ]; then
+  read -p "Enter the project folder name to remove (inside python/): " PROJECT
+else
+  PROJECT=$1
+fi
+
+BASE_DIR=~/automation-lab
+PROJECT_DIR=$BASE_DIR/python/$PROJECT
+
+# Check if the folder exists
+if [ ! -d "$PROJECT_DIR" ]; then
+  echo "❌ Folder '$PROJECT_DIR' does not exist."
+  exit 1
+fi
+
+# Confirm deletion
+read -p "⚠️  Are you sure you want to delete '$PROJECT_DIR'? (y/n): " CONFIRM
+if [[ ! "$CONFIRM" =~ ^[Yy]$ ]]; then
+  echo "❎ Deletion cancelled."
+  exit 0
+fi
+
+# Remove the folder
+rm -rf "$PROJECT_DIR"
+echo "🗑️  Removed folder: $PROJECT_DIR"
+
+# Commit and push the change to Git
+cd $BASE_DIR
+git add -u
+git commit -m "Removed project folder: $PROJECT"
+git push
+
+echo "✅ Folder '$PROJECT' removed and change pushed to GitHub."
+
+
